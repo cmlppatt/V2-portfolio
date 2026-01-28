@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Cath's Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cath's Portfolio</title>
     <link rel="stylesheet" href="https://use.typekit.net/wrj3gbg.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,11 +46,46 @@
       
       .menu-text-box{
         font-family: "IBM Plex Sans", roboto, sans-serif;
-        font-size: 2vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: #272932;
       }
       
       .menu-header{
         
+      }
+      
+      .menu-directory{
+        margin-top: auto;
+        padding-bottom: 4vh;
+        font-size: 2.5vw;
+      }
+      
+      .menu-item{
+        border-bottom: 4px solid #0D2BCD;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        margin-bottom: 4vh;
+      }
+      
+      .menu-item-title
+      {
+        font-weight: 600;
+        padding-bottom: 0;
+        margin-bottom: 1vh;
+      }
+      
+      .menu-item-description{
+        font-size: 1.5vw;
+        font-weight: 300;
+        text-align: right;
+        margin-right: 2vw;
+        line-height: 1;
+        padding-bottom: 0;
+        margin-bottom: 1.5vh;
       }
 
 
@@ -63,6 +98,26 @@
         <div class="menu-text-box">
           <div class="menu-header">
             menu
+          </div>
+          <div class="menu-directory">
+            <div class="menu-item"> 
+              <p class="menu-item-title">WORK</p>
+              <p class="menu-item-description">
+                Projects<br>Process
+              </p>
+            </div>
+            <div class="menu-item">
+              <p class="menu-item-title">PROFILE</p>
+              <p class="menu-item-description">
+                About<br>Education<br>Skills
+              </p>
+            </div>
+            <div class="menu-item">
+              <p class="menu-item-title">CONTACT</p>
+              <p class="menu-item-description">
+                Email<br>Phone #
+              </p>
+            </div>
           </div>
         </div>
       </div>
