@@ -15,50 +15,62 @@
       .main-page-container{
         display: flex;
       }
+      
       .side-menu-main{
         background-color: #FCF4ED;
         width: 25%;
         height: 100vh;
       }
+      
       .name-space-main{
         background-color: #0D2BCD;
+        color: #FCF4ED;
         width: 75%;
         height: 100vh;
         display: flex;
-        justify-content: center;
-        align-items: flex-end;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
       }
+      
       .name-big{
+        margin-bottom: -5vh;
         font-size: 29vw;
-        color: #FCF4ED;
         font-family: inter, roboto, sans-serif;
         font-weight: 700;
         letter-spacing: -0.09em;
-        margin: 0;
-        padding: 0;
-        transform: translateX(-0.03em);
-        margin-bottom: -5vh;
+        transform: translateX(-0.03em)
       }
       
       .loosen{ /*for the space between C & A in CATH*/
-        margin-left: 0.015em;
+        margin-left: 0.05em;
       }
       
+      .scroll-to-explore{
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-weight: 300;
+        margin-top: 4vh;
+      }
       .menu-text-box{
         font-family: "IBM Plex Sans", roboto, sans-serif;
         height: 100vh;
+        font-weight: 600;
         display: flex;
         flex-direction: column;
         color: #272932;
       }
       
       .menu-header{
+        font-size: 1.5vw;
+      }
+      
+      .logo-menu-img{
         
       }
       
       .menu-directory{
         margin-top: auto;
-        padding-bottom: 4vh;
+        padding-bottom: 1vh;
         font-size: 2.5vw;
       }
       
@@ -73,7 +85,6 @@
       
       .menu-item-title
       {
-        font-weight: 600;
         padding-bottom: 0;
         margin-bottom: 1vh;
       }
@@ -88,8 +99,6 @@
         margin-bottom: 1.5vh;
       }
 
-
-
     </style>
   </head>
   <body>
@@ -97,7 +106,7 @@
       <div class="side-menu-main">
         <div class="menu-text-box">
           <div class="menu-header">
-            menu
+            Menu
           </div>
           <div class="menu-directory">
             <div class="menu-item"> 
@@ -122,9 +131,12 @@
         </div>
       </div>
       <div class="name-space-main">
-        <p class="name-big">
+        <div class="scroll-to-explore">
+           &darr; scroll to explore &darr;
+        </div>
+        <div class="name-big">
           C<span class="loosen">A</span>TH
-        </p>
+        </div>
       </div>
     </div>
 
