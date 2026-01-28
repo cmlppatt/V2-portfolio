@@ -15,13 +15,12 @@
       .main-page-container{
         display: flex;
       }
-      
+      /* MENU SCREEN ######################################## */
       .side-menu-main{
         background-color: #FCF4ED;
         width: 25%;
         height: 100vh;
       }
-      
       .name-space-main{
         background-color: #0D2BCD;
         color: #FCF4ED;
@@ -32,7 +31,6 @@
         justify-content: space-between;
         align-items: center;
       }
-      
       .name-big{
         margin-bottom: -5vh;
         font-size: 29vw;
@@ -41,11 +39,9 @@
         letter-spacing: -0.09em;
         transform: translateX(-0.03em)
       }
-      
       .loosen{ /*for the space between C & A in CATH*/
         margin-left: 0.05em;
       }
-      
       .scroll-to-explore{
         font-family: "IBM Plex Sans", roboto, sans-serif;
         font-weight: 300;
@@ -60,36 +56,30 @@
         flex-direction: column;
         color: #272932;
       }
-      
       .menu-header{
         margin-right: 2vw;
         margin-left: 1vw;
         font-size: clamp(0px, 1.5vw, 24px);
       }
-      
       .logo-menu-img{
         width: 3vw;
         height: 3vw;
       }
-      
       .top-row{
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      
       .bottom-row{
         text-align: right;
         margin-top: 2.5vh;
         font-weight: 300;
       }
-      
       .menu-directory{
         margin-top: auto;
         padding-bottom: 1vh;
         font-size: clamp(0px, 3vw, 48px);
       }
-      
       .menu-item{
         border-bottom: 0.3vh solid #0D2BCD;
         display: flex;
@@ -98,14 +88,12 @@
         width: 100%;
         margin-bottom: 4vh;
       }
-      
       .menu-item-title
       {
         padding-bottom: 0;
         margin-left: 1vw;
         margin-bottom: 1vh;
       }
-      
       .menu-item-description{
         font-size: clamp(0px, 1.5vw, 24px);
         font-weight: 300;
@@ -115,10 +103,54 @@
         padding-bottom: 0;
         margin-bottom: 1.5vh;
       }
+      /* MENU SCREEN ######################################## */
+      
+      /* WORK SCREEN ######################################## */
+      .side-menu-work{
+        background-color: #FCF4ED;
+        width: 25%;
+        height: 100vh;
+      }
+.display-space-work {
+  width: 75%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none; /* so drag works smoothly */
+  user-select: none;
+}
+
+
+      /* WORK SCREEN ######################################## */
 
     </style>
   </head>
   <body>
+    <!-- MENU SCREEN ######################################## -->
     <div class="main-page-container">
       <div class="side-menu-main">
         <div class="menu-text-box">
@@ -164,6 +196,110 @@
         </div>
       </div>
     </div>
+    <!-- MENU SCREEN ######################################## -->
+    <div class="work-divider">
+      <p>
+        WORK
+      </p>
+    </div>
+    <!-- WORK SCREEN ######################################## -->
+    <div class="main-page-container">
+      <div class="side-menu-work">
+        
+      </div>
+      <div class="display-space-work">
+        <div class="carousel">
+          <div class="carousel-track">
+            <!-- clone last slide first for infinite illusion -->
+            <div class="slide"><img src="photoshop.png" alt=""></div>
+            <!-- real slides -->
+            <div class="slide"><img src="premiere.png" alt=""></div>
+            <div class="slide"><img src="indesign.png" alt=""></div>
+            <div class="slide"><img src="photoshop.png" alt=""></div>
+            <!-- clone first slide last for infinite illusion -->
+            <div class="slide"><img src="premiere.png" alt=""></div>
+          </div>
+        </div>
+
+        <script>
+         const track = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.slide');
+const slideCount = slides.length;
+let currentIndex = 1; // start at first real slide
+let isDragging = false;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+
+// Set initial position
+function setPosition() {
+  const width = track.parentElement.clientWidth;
+  track.style.transform = `translateX(${-currentIndex * width}px)`;
+}
+setPosition();
+
+// Adjust on window resize
+window.addEventListener('resize', setPosition);
+
+// Drag events
+track.addEventListener('mousedown', startDrag);
+track.addEventListener('touchstart', startDrag);
+track.addEventListener('mousemove', drag);
+track.addEventListener('touchmove', drag);
+track.addEventListener('mouseup', endDrag);
+track.addEventListener('touchend', endDrag);
+track.addEventListener('mouseleave', endDrag);
+
+function getX(e){
+  return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+}
+
+function startDrag(e){
+  isDragging = true;
+  startX = getX(e);
+  track.style.transition = 'none';
+}
+
+function drag(e){
+  if(!isDragging) return;
+  const x = getX(e);
+  const diff = x - startX;
+  const width = track.parentElement.clientWidth;
+  track.style.transform = `translateX(${ -currentIndex * width + diff }px)`;
+}
+
+function endDrag(e){
+  if(!isDragging) return;
+  isDragging = false;
+  const x = getX(e);
+  const diff = x - startX;
+  const width = track.parentElement.clientWidth;
+
+  // Move to next/prev slide if drag is > threshold
+  if(diff < -50) currentIndex += 1;
+  else if(diff > 50) currentIndex -= 1;
+
+  track.style.transition = 'transform 0.3s ease';
+  track.style.transform = `translateX(${-currentIndex * width}px)`;
+
+  // Infinite loop adjustment
+  setTimeout(() => {
+    if(currentIndex === 0) currentIndex = slideCount - 2;
+    if(currentIndex === slideCount - 1) currentIndex = 1;
+    track.style.transition = 'none';
+    track.style.transform = `translateX(${-currentIndex * width}px)`;
+  }, 310);
+}
+          </script>
+        </div>
+      </div>
+    
+    
+    
+    
+    <!-- WORK SCREEN ######################################## -->
+    
+    
 
 
   </body>
