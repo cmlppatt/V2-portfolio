@@ -14,6 +14,7 @@
     <style>
       .main-page-container{
         display: flex;
+        font-family: "IBM Plex Sans", roboto, sans-serif;
       }
       /* MENU SCREEN ######################################## */
       .side-menu-main{
@@ -32,7 +33,9 @@
         align-items: center;
       }
       .name-big{
-        margin-bottom: -5vh;
+        margin-top: auto;
+        margin-bottom: 0;
+        line-height: 1;
         font-size: 29vw;
         font-family: inter, roboto, sans-serif;
         font-weight: 700;
@@ -43,13 +46,11 @@
         margin-left: 0.05em;
       }
       .scroll-to-explore{
-        font-family: "IBM Plex Sans", roboto, sans-serif;
         font-weight: 300;
         margin-top: 8vh;
         font-size: clamp(0px, 1.5vw, 16px);
       }
       .menu-text-box{
-        font-family: "IBM Plex Sans", roboto, sans-serif;
         height: 100vh;
         font-weight: 600;
         display: flex;
@@ -104,46 +105,52 @@
         margin-bottom: 1.5vh;
       }
       /* MENU SCREEN ######################################## */
-      
+      .quote-divider{
+        text-align: center;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        font-size: clamp(0px, 3vw, 48px);
+        font-family: inter, roboto, sans-serif;
+        
+      }
       /* WORK SCREEN ######################################## */
       .side-menu-work{
         background-color: #FCF4ED;
         width: 25%;
         height: 100vh;
       }
-.display-space-work {
-  width: 75%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
+      .display-space-work {
+        width: 75%;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+      }
 
-.carousel {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+      .carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
 
-.carousel-track {
-  display: flex;
-  height: 100%;
-  transition: transform 0.3s ease;
-}
+      .carousel-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
 
-.slide {
-  flex: 0 0 100%;
-  height: 100%;
-}
+      .slide {
+        flex: 0 0 100%;
+        height: 100%;
+      }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none; /* so drag works smoothly */
-  user-select: none;
-}
-
+      .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+        user-select: none;
+      }
 
       /* WORK SCREEN ######################################## */
 
@@ -197,9 +204,9 @@
       </div>
     </div>
     <!-- MENU SCREEN ######################################## -->
-    <div class="work-divider">
+    <div class="quote-divider">
       <p>
-        WORK
+        Websites shouldn't be boring. I craft bold, dynamic digital experiences.
       </p>
     </div>
     <!-- WORK SCREEN ######################################## -->
