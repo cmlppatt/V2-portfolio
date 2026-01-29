@@ -114,9 +114,8 @@
         padding-bottom: 0;
         margin-bottom: 1.5vh;
       }
-      /* MENU SCREEN ######################################## */
+      /* ################################################### */
       .quote-divider{
-        
         display: flex;
         flex-direction: column;
         text-align: center;
@@ -128,31 +127,25 @@
         background-color: #FCF4ED;
         padding: 5em 0;
         margin-top: -1em;
-        /* Orange: #F26444 */
       }
-      
       .quote-top-row {
         margin-bottom: 0.2em;
       }
-
       .quote-second-row {
         display: flex;
-        justify-content: center; /* center the sentence */
+        justify-content: center;
         align-items: center;
-        flex-wrap: nowrap;       /* keep it on one line */
+        flex-wrap: nowrap;
       }
-
       .fixed-word {
         display: inline-block;
       }
-
       .dynamic-wrapper {
         display: inline-block;
         position: relative;
         width: 8ch;
         text-align: center;
       }
-
       .dynamic-word {
         position: absolute;
         left: 50%;
@@ -161,12 +154,10 @@
         display: inline-block;
         white-space: nowrap; 
       }
-      
       .colour-changer{
         color: #F26444;
         animation: colour-change 2s steps(1) infinite;
       }
-      
       @keyframes colour-change{
         0%, 100%{
           font-family: inter, roboto, sans-serif;
@@ -186,16 +177,21 @@
         }
       }
       
-      .bold-changer{
-        
-      }
-      
       /* WORK SCREEN ######################################## */
       .side-menu-work{
-        background-color: #FCF4ED;
+        background-color: #0D2BCD;
+        color: #FCF4ED;
         width: 25%;
         height: 100vh;
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-weight: 300;
       }
+      
+      .work-header{
+        font-size: clamp(0px, 3vw, 48px);
+        font-weight: 600;
+      }
+      
       .display-space-work {
         width: 75%;
         height: 100vh;
@@ -228,8 +224,84 @@
         pointer-events: none;
         user-select: none;
       }
+      
+      .info-column{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .info-block{
+        display: grid;
+        grid-template-rows: auto 0fr;
+        transition: grid-template-rows .35s ease;
+      }
+
+      .info-content{
+        overflow: hidden;
+        background-color: #FCF4ED;
+        color: #272932;
+        
+      }
+
+      .info-block.active{
+        grid-template-rows: auto 1fr;
+      }
+      
+      .info-btn{
+        width: 100%;
+        padding: 1.2rem;
+        background-color: #0D2BCD;
+        color: #FCF4ED;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-size: clamp(0px, 1.5vw, 36px);
+        font-weight: 300;
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+      }
+      
+      .info-btn:hover{
+        background-color: #839EEC;
+        color: #0D2BCD;
+      }
+      
+      .info-block.active .info-btn{
+        background: #FCF4ED;
+        color: #0D2BCD;
+      }
+      
+      .work-title{
+        font-size: clamp(0px, 2vw, 36px);
+        font-weight: 800;
+      }
+      
+      .work-item{
+        border-bottom: 0.3vh solid #FCF4ED;
+        background-color: #FCF4ED;
+        color: #272932;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: -1vh;
+      }
+      
+      .software-used{
+        
+      }
+      
+      .software-used img{
+        
+      }
 
       /* WORK SCREEN ######################################## */
+      
+      /* 
+      blue: #0D2BCD
+      white: #FCF4ED
+      light blue: #839EEC
+      black: #272932
+      */
 
     </style>
   </head>
@@ -280,7 +352,7 @@
         </div>
       </div>
     </div>
-    <!-- MENU SCREEN ######################################## -->
+    <!-- ######################################################## -->
     <div class="quote-divider">
       <p class="quote-top-row">Websites shouldn't be boring.</p>
       <div class="quote-second-row">
@@ -291,22 +363,59 @@
         <span class="fixed-word"> digital experiences.</span>
       </div>
     </div>
+    
+    
+    
+    
     <!-- WORK SCREEN ######################################## -->
     <div class="main-page-container">
       <div class="side-menu-work">
-        
+        <div class="work-header">
+          <div class="work-item"> 
+              <p class="menu-item-title">WORK</p>
+              <p class="menu-item-description">
+                Projects<br>Process
+              </p>
+          </div>
+        </div>
+        <div class="info-column">
+          <div class="info-block" data-slide="0">
+            <button class="info-btn"><span class="work-title">Tina's Grill</span>
+              <br> Website Redesign</button>
+            <div class="info-content">
+              <div class="software-used">
+                <img src="racket.png" alt="Adobe Illustrator Logo">
+              </div>
+            </div>
+          </div>
+
+          <div class="info-block" data-slide="1">
+            <button class="info-btn"><span class="work-title">Oibò</span>
+              <br> Branding Deck</button>
+            <div class="info-content">
+              Info for slide two goes here
+            </div>
+          </div>
+
+          <div class="info-block" data-slide="2">
+            <button class="info-btn"><span class="work-title">Where's the Inspo?</span>
+              <br>Magazine</button>
+            <div class="info-content">
+              Info for slide three goes here
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="display-space-work">
         <div class="carousel">
           <div class="carousel-track">
-            <!-- clone last slide first for infinite illusion -->
-            <div class="slide"><img src="photoshop.png" alt=""></div>
+            <div class="slide" data-slide="3"><img src="photoshop.png" alt=""></div>
             <!-- real slides -->
-            <div class="slide"><img src="premiere.png" alt=""></div>
-            <div class="slide"><img src="indesign.png" alt=""></div>
-            <div class="slide"><img src="photoshop.png" alt=""></div>
-            <!-- clone first slide last for infinite illusion -->
-            <div class="slide"><img src="premiere.png" alt=""></div>
+            <div class="slide" data-slide="1"><img src="premiere.png" alt=""></div>
+            <div class="slide" data-slide="2"><img src="indesign.png" alt=""></div>
+            <div class="slide" data-slide="3"><img src="photoshop.png" alt=""></div>
+            <div class="slide" data-slide="1"><img src="premiere.png" alt=""></div>
           </div>
         </div>
 
@@ -319,7 +428,36 @@
           let startX = 0;
           let currentTranslate = 0;
           let prevTranslate = 0;
+          
+          const infoBlocks = document.querySelectorAll('.info-block');
+          function updateInfoPanels(){
+            const realIndex = currentIndex - 1;
 
+            infoBlocks.forEach(b => b.classList.remove('active'));
+
+            const active = document.querySelector(
+              `.info-block[data-slide="${realIndex}"]`
+            );
+
+            if(active) active.classList.add('active');
+          }
+          
+          const infoButtons = document.querySelectorAll('.info-btn');
+
+          infoButtons.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+              const width = track.parentElement.clientWidth;
+
+              // Because you have cloned slides, real slide index = index + 1
+              currentIndex = index + 1;
+
+              track.style.transition = 'transform 0.35s ease';
+              track.style.transform = `translateX(${-currentIndex * width}px)`;
+
+              updateInfoPanels();
+            });
+          });
+          
           // Set initial position
           function setPosition() {
             const width = track.parentElement.clientWidth;
@@ -363,6 +501,8 @@
             const x = getX(e);
             const diff = x - startX;
             const width = track.parentElement.clientWidth;
+            track.style.transform = `translateX(${-currentIndex * width}px)`;
+            updateInfoPanels();
 
             // Move to next/prev slide if drag is > threshold
             if(diff < -50) currentIndex += 1;
@@ -377,6 +517,7 @@
               if(currentIndex === slideCount - 1) currentIndex = 1;
               track.style.transition = 'none';
               track.style.transform = `translateX(${-currentIndex * width}px)`;
+              updateInfoPanels();
             }, 310);
           }
           </script>
