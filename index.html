@@ -228,9 +228,13 @@
       .info-column{
         display: flex;
         flex-direction: column;
+        font-size: clamp(0px, 1.5vw, 36px);
+        font-weight: 300;
+        font-family: "IBM Plex Sans", roboto, sans-serif;
       }
 
       .info-block{
+        background-color: #FCF4ED;
         display: grid;
         grid-template-rows: auto 0fr;
         transition: grid-template-rows .35s ease;
@@ -240,7 +244,8 @@
         overflow: hidden;
         background-color: #FCF4ED;
         color: #272932;
-        
+        padding-left: 1vh;
+        padding-right: 2vh;
       }
 
       .info-block.active{
@@ -249,7 +254,9 @@
       
       .info-btn{
         width: 100%;
-        padding: 1.2rem;
+        padding-left: 1vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
         background-color: #0D2BCD;
         color: #FCF4ED;
         border: none;
@@ -266,8 +273,8 @@
       }
       
       .info-block.active .info-btn{
-        background: #FCF4ED;
-        color: #0D2BCD;
+        background: #0D2BCD;
+        color: #FCF4ED;
       }
       
       .work-title{
@@ -276,7 +283,7 @@
       }
       
       .work-item{
-        border-bottom: 0.3vh solid #FCF4ED;
+        border-bottom: 0.3vh solid #0D2BCD;
         background-color: #FCF4ED;
         color: #272932;
         display: flex;
@@ -287,11 +294,36 @@
       }
       
       .software-used{
-        
+        display: flex;
+        align-items: flex-start;
       }
       
-      .software-used img{
-        
+      .software-used li{
+        padding-bottom: 0.5vh;
+      }
+      
+      .software-used-logos{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        margin-left: auto;
+        margin-top: 0.5vh;
+        width: 4vw;
+        height: 4vw;
+      }
+      
+      .work-description .subheader{
+        font-weight: 600;
+        border-bottom: 0.2vh solid #0D2BCD;
+        padding-bottom: 1vh;
+        margin-bottom: -1vh;
+        padding-top: 1vh;
+      }
+      
+      .info-content .header{
+        font-style: italic;
+        color: #F26444;
+        font-weight: 600;
       }
 
       /* WORK SCREEN ######################################## */
@@ -301,6 +333,7 @@
       white: #FCF4ED
       light blue: #839EEC
       black: #272932
+      orange: #F26444
       */
 
     </style>
@@ -363,10 +396,6 @@
         <span class="fixed-word"> digital experiences.</span>
       </div>
     </div>
-    
-    
-    
-    
     <!-- WORK SCREEN ######################################## -->
     <div class="main-page-container">
       <div class="side-menu-work">
@@ -383,8 +412,29 @@
             <button class="info-btn"><span class="work-title">Tina's Grill</span>
               <br> Website Redesign</button>
             <div class="info-content">
+              <p class="header">
+                    A complete redesign of Tina’s Grill website, a local sports bar and grill in my hometown of Aurora.
+              </p>
               <div class="software-used">
-                <img src="racket.png" alt="Adobe Illustrator Logo">
+                <ul>
+                  <li>UX/UI Principles</li>
+                  <li>Visual Identity</li>
+                  <li>Web Layouts</li>
+                </ul>
+                <div class="software-used-logos">
+                  <img src="illustrator.png" alt="Adobe Illustrator Logo">
+                  <img src="photoshop.png" alt="Adobe Photoshop Logo">
+                </div>
+              </div>
+              <div class="work-description">
+                  <p>
+                    Completion Year: 2025<br>
+                    Grade Result: 95% 
+                  </p>
+                  <p class="subheader">Project Summary</p>
+                  <p>
+                    The redesign uses UX concepts to improve navigation, accessibility and readability. New bold and colourful graphics communicate the energy and personality of Tina’s Grill. The full 3 weeks process saw an in-person scouting visit, initial website critique identifying pain points, website redesign mockups, an updated site map, and a redesign rationale.
+                  </p>
               </div>
             </div>
           </div>
@@ -393,7 +443,30 @@
             <button class="info-btn"><span class="work-title">Oibò</span>
               <br> Branding Deck</button>
             <div class="info-content">
-              Info for slide two goes here
+              <p class="header">
+                    A complete redesign of Tina’s Grill website, a local sports bar and grill in my hometown of Aurora.
+              </p>
+              <div class="software-used">
+                <ul>
+                  <li>xxx</li>
+                  <li>Visual Identity</li>
+                  <li>xxx</li>
+                </ul>
+                <div class="software-used-logos">
+                  <img src="express.png" alt="Adobe Express Logo">
+                  <img src="photoshop.png" alt="Adobe Photoshop Logo">
+                </div>
+              </div>
+              <div class="work-description">
+                  <p>
+                    Completion Year: 2025<br>
+                    Grade Result: xxx 
+                  </p>
+                  <p class="subheader">Project Summary</p>
+                  <p>
+                    xxxx
+                  </p>
+              </div>
             </div>
           </div>
 
@@ -419,7 +492,17 @@
           </div>
         </div>
 
-        <script>
+
+        </div>
+      </div>
+    
+    
+    
+    
+    <!-- ########################################################### -->
+
+  </body>
+  <script>
           const track = document.querySelector('.carousel-track');
           const slides = document.querySelectorAll('.slide');
           const slideCount = slides.length;
@@ -464,6 +547,7 @@
             track.style.transform = `translateX(${-currentIndex * width}px)`;
           }
           setPosition();
+          updateInfoPanels();
 
           // Adjust on window resize
           window.addEventListener('resize', setPosition);
@@ -520,17 +604,5 @@
               updateInfoPanels();
             }, 310);
           }
-          </script>
-        </div>
-      </div>
-    
-    
-    
-    
-    <!-- WORK SCREEN ######################################## -->
-    
-    
-
-
-  </body>
+    </script>
 </html>
