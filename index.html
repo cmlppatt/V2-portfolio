@@ -26,6 +26,35 @@
         display: flex;
         font-family: "IBM Plex Sans", roboto, sans-serif;
       }
+      
+      .home-float{
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-size: 2vw;
+        position: fixed;
+        top: 2vh;
+        right: 2vw;
+        padding: 0.5em 0.75em;
+        background-color: #0D2BCD;
+        box-shadow: 0 0.2em 1em 0.05em rgba(0,0,0,0.6);
+        color: #FCF4ED;
+        border-radius: 100%;
+        border: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s ease, transform .3s ease;
+        transform: translateY(-10px);
+        z-index: 1000;
+      }
+      
+      .home-float:hover{
+        background-color: #839EEC;
+      }
+
+      .home-float.show{
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
       /* MENU SCREEN ######################################## */
       .side-menu-main{
         background-color: #FCF4ED;
@@ -357,7 +386,7 @@
   </head>
   <body>
     <!-- MENU SCREEN ######################################## -->
-    <div class="main-page-container">
+    <section id="landing" class="main-page-container">
       <div class="side-menu-main">
         <div class="menu-text-box">
           <div class="menu-header">
@@ -401,7 +430,7 @@
           C<span class="loosen">A</span>TH
         </div>
       </div>
-    </div>
+    </section>
     <!-- ######################################################## -->
     <div class="quote-divider">
       <p class="quote-top-row">Websites shouldn't be boring.</p>
@@ -532,7 +561,7 @@
     
     
     <!-- ########################################################### -->
-
+    <button class="home-float">&uarr;</button>
   </body>
   <script>
           const track = document.querySelector('.carousel-track');
@@ -636,5 +665,22 @@
               updateInfoPanels();
             }, 310);
           }
+          const homeBtn = document.querySelector('.home-float');
+          const landing = document.querySelector('#landing');
+
+          window.addEventListener('scroll', () => {
+          const triggerPoint = landing.offsetHeight;
+          if(window.scrollY > triggerPoint){
+            homeBtn.classList.add('show');
+            } else {
+              homeBtn.classList.remove('show');
+              }
+            });
+          homeBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
     </script>
 </html>
