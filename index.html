@@ -392,21 +392,7 @@
 
       /* WORK SCREEN ######################################## */
       
-      .about img{
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-      }
       
-      .about-title{
-        margin-top: auto;
-        margin-bottom: 0;
-        line-height: 1;
-        font-size: 20vw;
-        font-family: inter, roboto, sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.09em;
-      }
       
       /* 
       blue: #0D2BCD
@@ -416,28 +402,60 @@
       orange: #F26444
       */
       
-      /* PRFOILE SECTION ######################################*/
-      .buttons{
-        color: #0D2BCD;
-        font-size: 10vw;
-        font-family: inter, roboto, sans-serif;
-        display: flex;
-        width: 100%;
+      /* PRFOILE SECTION ######################################*/      
+      .profile-wrapper {
+        position: relative;
+        width: 100vw;
       }
-      .about-button {
-        
-      }
-      
-      .education-button{
-        
-      }
-      
-      .skills-button{
-        
-      }
-      
-      
 
+      .profile-pic img {
+        width: 100vw;
+        display: block;
+      }
+
+      .pigeon-stare {
+        position: absolute;
+        bottom: 34%;         
+        left: 60%;       
+        z-index: 2;
+      }
+
+      .pigeon-stare img {
+        width: 10vw;
+      }
+      
+      .profile-txt {
+        position: absolute;
+        z-index: 2;
+      }
+      
+      .buttons {
+        font-family: inter, roboto, sans-serif;
+        font-size: clamp(0px, 2vw, 36px);
+        font-weight: 700;
+        color: #0D2BCD
+      }
+
+      .about-button {
+        position: absolute;
+        bottom: 90%;
+        left: 5%;
+        z-index: 2;
+      }
+      
+      .education-button {
+        position: absolute;
+        bottom: 90%;
+        left: 75%;
+        z-index: 2;
+      }
+      
+      .skills-button {
+        position: absolute;
+        bottom: 50%;
+        left: 75%;
+        z-index: 2;
+      }
     </style>
   </head>
   <body>
@@ -479,20 +497,19 @@
         </div>
       </div>
       <div class="name-space-main">
-  <div class="scroll-to-explore">
-    &darr; scroll to explore &darr;
-  </div>
+        <div class="scroll-to-explore">
+          &darr; scroll to explore &darr;
+        </div>
 
-  <!-- Wrap pigeon + CATH in one group -->
-  <div class="name-bottom-group">
-    <div class="pigeon">
-      <img src="pigeon.gif" alt="toy pigeon endlessly pecking the ground">
-    </div>
-    <div class="name-big">
-      C<span class="loosen">A</span>TH
-    </div>
-  </div>
-</div>
+        <div class="name-bottom-group">
+          <div class="pigeon">
+            <img src="pigeon.gif" alt="toy pigeon endlessly pecking the ground">
+          </div>
+          <div class="name-big">
+            C<span class="loosen">A</span>TH
+          </div>
+        </div>
+      </div>
     </section>
     <!-- ######################################################## -->
     <div class="quote-divider">
@@ -621,25 +638,30 @@
       </div>
     </div>
     <!-- ########################################################### -->
-    <div class="main-namespace">
-      <div class="about">
-        <h1 class="about-title">
-          X PROFILE X
-        </h1>
-        <div class="buttons">
-        
-          <div class="about-button">
-            ABOUT
-          </div>
-          <div class="education-button">
-            EDUCATION
-          </div>
-          <div class="skills-button">
-            SKILLS
-          </div>
+    <div class="profile-space">
+      <div class="profile-wrapper">
+        <div class="profile-txt">
+          PROFILE
         </div>
-        <img src="linkedin.png" alt="">
-      </div>   
+        <div class="buttons">
+            <div class="about-button">
+              ABOUT
+          </div>
+            <div class="education-button">
+              EDUCATION
+            </div>
+            <div class="skills-button">
+              SKILLS
+            </div>
+          </div>
+      
+        <div class="profile-pic">
+          <img src="linkedin.png" alt="">
+        </div>
+        <div class="pigeon-stare">
+          <img src="pigeon-stare.gif" alt="">
+        </div>
+      </div>
     </div>
     <button class="home-float">&uarr;</button>
   </body>
