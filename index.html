@@ -406,18 +406,19 @@
       .profile-wrapper {
         position: relative;
         width: 100vw;
-        
+        font-family: "IBM Plex Sans", roboto, sans-serif;
+        font-size: clamp(0px, 2vw, 1.5vw);
+        font-weight: 300;
+        text-align: left;
       }
-
       .profile-pic img {
         width: 100vw;
         display: block;
       }
-
       .pigeon-stare {
         position: absolute;
         bottom: 34%;         
-        left: 60%;       
+        left: 58%;       
         z-index: 2;
       }
       .pigeon-stare img {
@@ -444,10 +445,10 @@
         color: #0D2BCD;
       }
       .about-wrapper {
-        width: 30vw;
+        width: 28vw;
         position: absolute;
         top: 10%;
-        left: 65%;
+        left: 68%;
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -457,9 +458,9 @@
       }
       .education-wrapper {
         position: absolute;
-        width: 30vw;
+        width: 28vw;
         top: 10%;
-        left: 3%;
+        left: 2%;
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -468,10 +469,10 @@
         overflow: hidden;
       }
       .skills-wrapper {
-        width: 30vw;
+        width: 28vw;
         position: absolute;
-        top: 50%;
-        left: 3%;
+        top: 40%;
+        left: 2%;
         z-index: 2;
         display: flex;
         flex-direction: column;
@@ -483,11 +484,11 @@
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease, padding 0.4s ease;
-        padding: 0 0.5vw;
+        padding: 0 0.8vw;
       }
       .panel.open {
-        max-height: 300px;
-        padding: 1vw 0.5vw;
+        max-height: 500px;
+        padding: -0.8vw 0.8vw;
       }
       .arrow {
         display: inline-block;
@@ -500,6 +501,19 @@
       }
       .arrow.open {
         transform: rotate(0deg) translateY(-0.1vw);    /* same nudge when open */
+      }
+      .bold{
+        font-weight: 600;
+      }
+      #nudge{
+        margin-left: 2vw;
+        margin-bottom: -1vw;
+      }
+      .skill-logo{
+        display: block;
+        margin-bottom: 1vw;
+        margin-left: 1vw;
+        width: 3vw;
       }
     </style>
   </head>
@@ -692,7 +706,10 @@
             <span class="arrow" id="about-arrow">⌃</span>
           </div>
           <div class="panel" id="about-panel">
-            <p>Your about text goes here!</p>
+            <p>I’m a Franco-Ontarian developper & designer with 5 years of experience working at the intersection of code, design and storytelling. I love to play with bold, expressive and interactive visual styles. Whether I’m writing code or sketching layouts, I bring a curious, experimental mindset to everything I do and strive to make digital spaces more engaging, memorable and fun!</p>
+            <p>
+            In my spare time, for the past 12 years I’ve been playing hockey for my hometown team, the Aurora Panthers. I love the high energy and teamwork of the game. No, I’m not a Leafs fan… Go Oilers!
+            </p>
           </div>
         </div>
         
@@ -702,7 +719,13 @@
             <span class="arrow" id="education-arrow">⌃</span>
           </div>
           <div class="panel" id="education-panel">
-            <p>Your about text goes here!</p>
+            <p id="nudge">
+              University of Waterloo:
+            </p>
+            <ul>
+              <li>Bachelor of <span class="bold">Global Business and Digital Arts</span> with Honours</li>
+            <li>Minor in <span class="bold">Computing</span></li>
+            </ul>
           </div>
         </div>
         
@@ -712,7 +735,14 @@
             <span class="arrow" id="skills-arrow">⌃</span>
           </div>
           <div class="panel" id="skills-panel">
-            <p>Your about text goes here!</p>
+            <img class="skill-logo" src="html-logo.png" alt="HTML logo">
+            <img class="skill-logo" src="css.png" alt="CSS logo">
+            <img class="skill-logo" src="java.png" alt="Javascript logo">
+            <img class="skill-logo" src="sql.png" alt="SQL logo">
+            <img class="skill-logo" src="python.png" alt="Python logo">
+            <img class="skill-logo" src="photoshop.png" alt="Photoshop logo">
+            <img class="skill-logo" src="illustrator.png" alt="Illustrator logo">
+            <img class="skill-logo" src="indesign.png" alt="InDesign logo">
           </div>
         </div>
         
